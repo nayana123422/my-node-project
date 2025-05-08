@@ -32,7 +32,6 @@ const server = http.createServer((req, res) => {
     servePage(res, path.join(__dirname, 'pages', 'logout.html'));
 
   } 
-  // Handle Register with duplicate check
   else if (req.url === '/submit-register' && req.method === 'POST') {
     let body = '';
     req.on('data', chunk => { body += chunk.toString(); });
@@ -69,7 +68,6 @@ const server = http.createServer((req, res) => {
       });
     });
   } 
-  // Handle Login
   else if (req.url === '/submit-login' && req.method === 'POST') {
     let body = '';
     req.on('data', chunk => { body += chunk.toString(); });
@@ -104,7 +102,6 @@ const server = http.createServer((req, res) => {
       });
     });
   } 
-  // Else 404
   else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('404 - Page Not Found');
